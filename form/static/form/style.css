@@ -1,0 +1,56 @@
+body{
+text-align:center;
+background-color: #eee;
+}
+
+
+input[type="text"] {
+border:none;
+outline :none;
+border-bottom: 1px solid red;
+font-family: monospace;
+font-size: 28px;
+margin:15px;
+
+}
+textarea {
+border:none;
+outline :none;
+height:40px !important;
+width:400px !important;
+text-decoration:none;
+border-bottom: 1px solid red;
+font-family: monospace;
+margin:15px;
+
+}
+
+.formHead{
+border:1px solid black ;
+margin:10px;
+width:70%;
+}
+
+.section{
+border:1px solid black ;
+margin:10px;
+width:70%;
+}
+.formHead:hover{
+background-color:white;
+
+}
+.section:hover{
+background-color:white;
+
+}
+
+.field{
+padding:40px;
+margin:15px;
+border:1px solid black;
+width:40%;
+margin-left:200px;
+
+}
+
