@@ -7,11 +7,10 @@ class Form(models.Model):
     description = models.TextField(max_length=250,default='Description Section')
     publishDate = models.DateTimeField()
     endValidity = models.DateTimeField()
-    slug = models.SlugField(max_length=50,unique_for_date='publishDate')
     author = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Identity - {self.slug} & Title - {self.title}'
+        return f'Title - {self.title}'
 
 
 class Section(models.Model):
@@ -37,8 +36,14 @@ class Field(models.Model):
     label = models.CharField(max_length=50,default='Label')
     required = models.BooleanField(default=False)
     field = models.TextField(choices=CHOICE)
-
+    section = models.ForeignKey(Section,on_delete=models.CASCADE,null=True)
     def __str__(self):
         return f'Field Description - {self.description}'
 
 
+class Choice(models.Model):
+    option = models.CharField(max_length=50)
+    field = models.ForeignKey(Field,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'option {self.option}'
