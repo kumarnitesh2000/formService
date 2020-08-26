@@ -1,0 +1,27 @@
+{
+    "form": {
+
+        "form_title":"Untitled Form",
+        "form_description":"Enter The Description"
+    },
+
+    "section":{
+        "section_title":[],
+        "section_description":[]
+    },
+
+    "field":{
+
+        "field_description":[],
+        "field_label":[],
+        "field_optgroup_type":[{
+            "Choices":[{"DropDown":false},{"Choice":false},{"MultiChoice":false}],
+            "Options":[null,null,null]
+        },{
+            "NoChoices":[{"TextField":false},{"Date&Time":false},{"FileUpload":false},{"NumberOnly":false}]
+        }
+    ]
+
+    }
+    
+  }
