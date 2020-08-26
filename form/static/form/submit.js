@@ -16,16 +16,15 @@ var objJson = {
         "field_description":[],
         "field_label":[],
         "field_optgroup_type":[{
-            "Choices":[{"DropDown":false},{"Choice":false},{"MultiChoice":false}],
-            "Options":[]
+            "Choices":[{"field_type": "dropdown", "options": ["male","female"]}]
         },{
-            "NoChoices":[{"TextField":false},{"Date&Time":false},{"FileUpload":false},{"NumberOnly":false}]
+            "NoChoices":["textfield","fileupload"]
         }
     ]
 
     }
     
-}
+  }
 var but = document.getElementById('submit');
 //TODO
 let submitJson  = () =>{
