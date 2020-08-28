@@ -89,7 +89,7 @@ option4.setAttribute('value','text');
 option4.innerHTML = 'TextField';
 
 var option5 = document.createElement('option');
-option5.setAttribute('value','date&time');
+option5.setAttribute('value','datetime');
 option5.innerHTML = 'Date&Time';
 
 var option6 = document.createElement('option');

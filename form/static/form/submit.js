@@ -65,7 +65,7 @@ let submitJson  = () =>{
     //xmlhttp.open(method,url,isasync)
 
 
-
+/*
 
     xmlhttp.open("POST", "/forms/create", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -76,6 +76,6 @@ let submitJson  = () =>{
 
     location.href = '/forms/response';
 
-
+*/
 }
 but.addEventListener('click',submitJson);
