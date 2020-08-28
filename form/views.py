@@ -12,7 +12,6 @@ def create(request):
         # you have to retrieve all the info from post_request
 
 
-
         # code space above either print the data that you retrieve to prove your work
         return redirect('response')
     forminstance = FormForm()
@@ -46,41 +45,33 @@ def formInfo(request,id):
 
             "field_description": [],
             "field_label": [],
-            "field_optgroup_type": [{
-                "Choices": [],
-            }, {
-                "NoChoices": []
-            }
+            "field_type_list": [
+
+
             ]
 
         }
 
     }
-    choice_opt_group = ["dropDown","choice","multipleChoices"]
-    no_choice_opt_group = ["text","date&time","fileUpload","number"]
-
     sections = form.section_set.all()
     for i in sections:
         dic["section"]["section_title"].append(i.sec_title)
         dic["section"]["section_description"].append(i.description)
         fields = i.field_set.all()
-        for j in fields:
+        for k,j in enumerate(fields):
             dic["field"]["field_description"].append(j.description)
             dic["field"]["field_label"].append(j.label)
             field_type = j.field
-            if field_type in choice_opt_group:
-                #type is choices
-                choices = j.choice_set.all()
-                choices_list = []
-                for k in choices:
-                    choices_list.append(k.option)
-                dic["field"]["field_optgroup_type"][0]["Choices"].append({"field_type":field_type,"options":choices_list})
-                #for all choices in field type
-
-            elif field_type in no_choice_opt_group:
-                #type is no choices
-                dic["field"]["field_optgroup_type"][1]["NoChoices"].append(field_type)
-
+            options_list = j.choice_set.all()
+            option_list_option = []
+            for l in options_list:
+                option_list_option.append(l.option)
+            index = k
+            dic["field"]["field_type_list"].append({
+                "field_type":field_type,
+                "index":index,
+                "options": option_list_option
+            })
 
     return JsonResponse({'format':dic})
 
