@@ -27,7 +27,7 @@ var but = document.getElementById('submit');
 //TODO
 let submitJson  = () =>{
 //For Testing Alert
-
+    var choices = ["choice","multipleChoices","dropDown"];
     //form title , description
     var form_title = document.getElementById('id_title').value;
     var form_description = document.getElementById('id_description').value;
@@ -47,7 +47,20 @@ let submitJson  = () =>{
         objJson.field.field_description.push(p.value);
         objJson.field.field_label.push(document.getElementById("label_"+j).value);
         var t =  document.getElementById('choice_'+j).value;
-        objJson.field.field_type_list.push({"field_type":t,options:[],"index":j-1});
+        var tot_option_added = [];
+        if(search(t,choices)){
+            var id = j;
+            var len = document.getElementById(String(id)).value;
+            var options_tot = parseInt(len);
+            for(var l=1;l<=options_tot;l++){
+                    var con = `choice_${j}_input_${l}`;
+                    var content = document.getElementById(con).value;
+                    tot_option_added.push(content);
+            }
+
+        }
+
+        objJson.field.field_type_list.push({"field_type":t,options:tot_option_added,"index":j-1});
     }
     //now this objJson for to
     //xhr post request
@@ -65,7 +78,7 @@ let submitJson  = () =>{
     //xmlhttp.open(method,url,isasync)
 
 
-/*
+
 
     xmlhttp.open("POST", "/forms/create", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -76,6 +89,6 @@ let submitJson  = () =>{
 
     location.href = '/forms/response';
 
-*/
+
 }
 but.addEventListener('click',submitJson);

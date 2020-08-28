@@ -46,6 +46,13 @@ var div = document.createElement('div');
 div.setAttribute('class','field');
 var label_2 = document.createElement('label');;
 label_2.innerHTML = 'Description ';
+
+var hidden_input = document.createElement('input');
+hidden_input.setAttribute('type','hidden');
+hidden_input.setAttribute('value','1');
+hidden_input.setAttribute('id',initial);
+div.append(hidden_input);
+
 div.appendChild(label_2);
 var textarea = document.createElement('textarea');
 textarea.setAttribute('id',description_id);
@@ -66,6 +73,7 @@ div.appendChild(label);
 var select = document.createElement('select');
 select.setAttribute('name','fields');
 select.setAttribute('id',choice_id);
+select.setAttribute('onchange','selectFun(event)');
 var opgroup1 = document.createElement('optgroup');
 var opgroup2 = document.createElement('optgroup');
 opgroup1.setAttribute('label','Choices');

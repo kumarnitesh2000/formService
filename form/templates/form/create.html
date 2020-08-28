@@ -49,12 +49,13 @@
 </div>
 
 <div class="field">
+    <input type="hidden" value="1" id="1">
     <label>Description </label><span class="description"><textarea id="description_1"></textarea></span>
     <br>
     <label>
         <input type="text" value="Label" id="label_1">
     </label>
-    <select name="fields" id="choice_1">
+    <select name="fields" id="choice_1" onchange="selectFun(event)">
         <optgroup label="Choices">
         <option value="choice">Choices</option>
         <option value="multipleChoices">multipleChoices</option>
@@ -67,11 +68,25 @@
         <option value="number">NumberOnly</option>
         </optgroup>
     </select>
+<!--
+    <div id="choice_1_total">
+        <label>Option 1</label>
+        <input type="text" value="" id="choice_1_input_1">
+        <br>
+        <label>Option 2</label>
+
+        <input type="text" value="" id="choice_2_input_2">
+    </div>
+-->
+
 
 </div>
 
 
 <script src="{%static 'form/main.js'%}"></script>
 <script src="{%static 'form/submit.js'%}"></script>
+<script src="{%static 'form/option.js' %}"></script>
+
+
 </body>
 </html>
