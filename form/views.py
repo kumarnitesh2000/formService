@@ -8,7 +8,12 @@ def create(request):
         # here this is responsible for submitting the Form Template .
         post_request = request.POST
         print(post_request)
+        # contribute here for this project
+        # you have to retrieve all the info from post_request
 
+
+
+        # code space above either print the data that you retrieve to prove your work
         return redirect('response')
     forminstance = FormForm()
     sectionforminstance = SectionForm()
