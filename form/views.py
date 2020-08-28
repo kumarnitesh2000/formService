@@ -1,24 +1,30 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import FormForm,SectionForm,FieldForm
-from .models import Field,Form,Section,Choice
-
+from .models import Form
 from django.http import JsonResponse
-DEFAULT_TITLE = ''
-DEFAULT_DESCRIPTION = ''
-
 
 def create(request):
     if request.method=='POST':
-        print(request.POST)
-        return JsonResponse(request.POST)
+        # here this is responsible for submitting the Form Template .
+        post_request = request.POST
+        print(post_request)
+
+        return redirect('response')
     forminstance = FormForm()
     sectionforminstance = SectionForm()
     fieldform = FieldForm()
     context = {'form': forminstance,'secForm':sectionforminstance,'fieldform':fieldform}
     return render(request, template_name='form/create.html',context=context)
 
+
 def formInfo(request,id):
-    form = Form.objects.get(id=id)
+    try:
+        form = Form.objects.get(id=id)
+    except:
+        print('No Form Exist .')
+        return JsonResponse({"msg": "Bad Request"})
+
+
     dic = {
         "form": {
 
@@ -71,8 +77,9 @@ def formInfo(request,id):
                 dic["field"]["field_optgroup_type"][1]["NoChoices"].append(field_type)
 
 
-
     return JsonResponse({'format':dic})
+
+
 
 def response(request):
     return render(request , 'form/response.html')

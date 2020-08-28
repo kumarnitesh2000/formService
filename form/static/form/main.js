@@ -72,32 +72,32 @@ opgroup1.setAttribute('label','Choices');
 opgroup2.setAttribute('label','NoChoices');
 
 var option1 = document.createElement('option');
-option1.setAttribute('values','Choices');
+option1.setAttribute('value','choice');
 option1.innerHTML = 'Choices';
 
 var option2 = document.createElement('option');
-option2.setAttribute('values','MultipleChoice');
-option2.innerHTML = 'MultipleChoice';
+option2.setAttribute('value','multipleChoices');
+option2.innerHTML = 'multipleChoices';
 
 var option3 = document.createElement('option');
-option3.setAttribute('values','DropDown');
-option3.innerHTML = 'DropDown';
+option3.setAttribute('value','dropDown');
+option3.innerHTML = 'dropDown';
 
 
 var option4 = document.createElement('option');
-option4.setAttribute('values','TextField');
+option4.setAttribute('value','text');
 option4.innerHTML = 'TextField';
 
 var option5 = document.createElement('option');
-option5.setAttribute('values','Date&Time');
+option5.setAttribute('value','date&time');
 option5.innerHTML = 'Date&Time';
 
 var option6 = document.createElement('option');
-option6.setAttribute('values','FileUpload');
+option6.setAttribute('value','fileUpload');
 option6.innerHTML = 'FileUpload';
 
 var option7 = document.createElement('option');
-option7.setAttribute('values','NumberOnly');
+option7.setAttribute('value','number');
 option7.innerHTML = 'NumberOnly';
 //adding 3 option
 opgroup1.appendChild(option1);
