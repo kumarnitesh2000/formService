@@ -119,8 +119,8 @@ opgroup2.appendChild(option7);
 
 
 
-select.appendChild(opgroup1);
 select.appendChild(opgroup2);
+select.appendChild(opgroup1);
 
 div.appendChild(select);
 body.appendChild(div);

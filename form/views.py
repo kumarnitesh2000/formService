@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import FormForm,SectionForm,FieldForm
 from .models import Form
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 
 def create(request):
     if request.method=='POST':
@@ -10,10 +10,9 @@ def create(request):
         print(post_request)
         # contribute here for this project
         # you have to retrieve all the info from post_request
-
-
+        return JsonResponse({"id":1})
         # code space above either print the data that you retrieve to prove your work
-        return redirect('response')
+
     forminstance = FormForm()
     sectionforminstance = SectionForm()
     fieldform = FieldForm()

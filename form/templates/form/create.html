@@ -17,7 +17,7 @@
     </button>
 
 <!--Todo-->
-    <button id="submit">
+    <button id="submit" type="submit">
         Submit
     </button>
 
@@ -56,16 +56,16 @@
         <input type="text" value="Label" id="label_1">
     </label>
     <select name="fields" id="choice_1" onchange="selectFun(event)">
-        <optgroup label="Choices">
-        <option value="choice">Choices</option>
-        <option value="multipleChoices">multipleChoices</option>
-        <option value="dropDown">dropDown</option>
-        </optgroup>
         <optgroup label="NoChoices">
         <option value="text">TextField</option>
         <option value="datetime">DateTime</option>
         <option value="fileUpload">FileUpload</option>
         <option value="number">NumberOnly</option>
+        </optgroup>
+        <optgroup label="Choices">
+        <option value="choice">Choices</option>
+        <option value="multipleChoices">multipleChoices</option>
+        <option value="dropDown">dropDown</option>
         </optgroup>
     </select>
 <!--

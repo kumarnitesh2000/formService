@@ -74,20 +74,20 @@ let submitJson  = () =>{
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     //logging the resultant template
-    console.log(objJson);
+    //console.log(objJson);
     //xmlhttp.open(method,url,isasync)
 
-
-
-
+    var form_id = 0;
     xmlhttp.open("POST", "/forms/create", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      form_id += JSON.parse(this.response).id;
+      location.href=`/forms/form_info/${form_id}`;
+    }
+  };
     var token = document.querySelector('[name="csrfmiddlewaretoken"]').value ;
-
     xmlhttp.send(`csrfmiddlewaretoken=${token}&body=${JSON.stringify(objJson)}`);
-
-
-    location.href = '/forms/response';
 
 
 }
