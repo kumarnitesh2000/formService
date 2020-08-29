@@ -36,7 +36,7 @@ div.setAttribute('class','section');
 var hidden_in = document.createElement('input');
 hidden_in.setAttribute('type','hidden');
 hidden_in.setAttribute('value','0');
-hidden_in.setAttribute('id',`total_fields_${init_section+1}`)
+hidden_in.setAttribute('id',`total_fields_${document.getElementById('current_sec').value}`)
 div.appendChild(hidden_in);
 div.appendChild(label);
 div.appendChild(input);
