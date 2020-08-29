@@ -8,7 +8,8 @@ var objJson = {
 
     "section":{
         "section_title":[],
-        "section_description":[]
+        "section_description":[],
+        "section_fields" : []
     },
 
     "field":{
@@ -41,12 +42,14 @@ let submitJson  = () =>{
         var p = document.getElementById("sec_title_"+i);
         objJson.section.section_title.push(p.value);
         objJson.section.section_description.push(document.getElementById("sec_des_"+i).value);
+        objJson.section.section_fields.push(document.getElementById("total_fields_"+i).value);
     }
     for(var j=1;j<= fld;j++){
         var p= document.getElementById("description_"+j);
         objJson.field.field_description.push(p.value);
         objJson.field.field_label.push(document.getElementById("label_"+j).value);
         var t =  document.getElementById('choice_'+j).value;
+
         var tot_option_added = [];
         if(search(t,choices)){
             var id = j;
@@ -74,7 +77,7 @@ let submitJson  = () =>{
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     //logging the resultant template
-    //console.log(objJson);
+    console.log(objJson);
     //xmlhttp.open(method,url,isasync)
 
     var form_id = 0;

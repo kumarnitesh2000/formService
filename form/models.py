@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Form(models.Model):
     title = models.CharField(max_length=30,default='Untitled Form')
     description = models.TextField(max_length=250,default='Description Section')
-    publishDate = models.DateTimeField()
+    publishDate = models.DateTimeField(auto_now_add=True)
     endValidity = models.DateTimeField()
     author = models.ForeignKey(User,on_delete=models.CASCADE)
 
@@ -24,13 +24,13 @@ class Section(models.Model):
 
 class Field(models.Model):
     CHOICE = (
-        ('text', 'TextField'),
-        ('choice', 'Choices'),
-        ('multipleChoices', 'MultipleChoice'),
-        ('date&time', 'DateTime'),
-        ('dropDown', 'DropDown'),
-        ('fileUpload', 'FileUpload'),
-        ('number', 'NumberOnly')
+        ('text', 'text'),
+        ('choice', 'choice'),
+        ('multipleChoices', 'multipleChoices'),
+        ('datetime', 'datetime'),
+        ('dropDown', 'dropDown'),
+        ('fileUpload', 'fileUpload'),
+        ('number', 'number')
     )
     description = models.CharField(max_length=50,default='Fill This')
     label = models.CharField(max_length=50,default='Label')

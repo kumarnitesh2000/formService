@@ -7,6 +7,8 @@ var addSecBut = document.getElementById('addSec');
 var addFieldBut = document.getElementById('addField');
 
 var init = 1;
+
+var init_section = 1;
 //button clicked of add Section
 addSecBut.addEventListener('click',function(){
 
@@ -15,6 +17,11 @@ init+=1
 var sec_title_id = 'sec_title_'+init;
 var sec_des_id = 'sec_des_'+    init ;
 console.log('Adding Section ');
+
+var cur_sec = document.getElementById('current_sec');
+var int = parseInt(cur_sec.value)+1;
+cur_sec.value = String(int);
+
 var div = document.createElement('div');
 var input = document.createElement('input');
 var textarea = document.createElement('textarea');
@@ -26,6 +33,11 @@ label_2.innerHTML = 'Description '
 var label = document.createElement('label');
 label.innerHTML = 'Section Title'
 div.setAttribute('class','section');
+var hidden_in = document.createElement('input');
+hidden_in.setAttribute('type','hidden');
+hidden_in.setAttribute('value','0');
+hidden_in.setAttribute('id',`total_fields_${init_section+1}`)
+div.appendChild(hidden_in);
 div.appendChild(label);
 div.appendChild(input);
 div.appendChild(label_2);
@@ -36,7 +48,15 @@ var initial = 1;
 
 //button clicked of add Field
 addFieldBut.addEventListener('click',function(){
+
+
 console.log('Adding Field ');
+var cur_sec = document.getElementById('current_sec').value ;
+var id_val = `total_fields_${cur_sec}`;
+var dom_add_1 = document.getElementById(id_val).value;
+var now = String(parseInt(dom_add_1)+1);
+document.getElementById(id_val).value = now ;
+
 var body = document.getElementsByTagName('body')[0];
 initial+=1;
 var description_id = 'description_'+initial.toString();
