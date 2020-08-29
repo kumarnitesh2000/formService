@@ -15,7 +15,9 @@ def create(request):
         body_dict = json.loads(body)
         form = body_dict["form"]
         section = body_dict["section"]
+
         field = body_dict["field"]
+        print(form, field, section)
         #default author admin
         author = User.objects.get(id=1)
         #form valid upto 10 days
@@ -25,7 +27,7 @@ def create(request):
         form_save.save()
         #section Part
         total_sections = len(section['section_title'])
-        c = 0
+        c=0
         for i in range(total_sections):
             title = section['section_title'][i]
             description = section['section_description'][i]
@@ -34,8 +36,8 @@ def create(request):
             #total fields in this section
 
             total_fields = int(section['section_fields'][i])
-            for k in range(c,total_fields):
-                c+=1
+            for k in range(c,c+total_fields):
+                print(f'{c} to {c+total_fields}')
                 fields = Field(label=field['field_label'][k],description=field['field_description'][k],field=field['field_type_list'][k]['field_type'],section=section_save)
                 fields.save()
                 choices = field['field_type_list'][k]['options']
@@ -43,9 +45,8 @@ def create(request):
                 for l in range(choice_length):
                     choice = Choice(option=choices[l],field=Field.objects.get(id=fields.id))
                     choice.save()
-
             #saving all the fields
-
+            c+=total_fields
         return JsonResponse({"id":form_save.id})
 
     forminstance = FormForm()
